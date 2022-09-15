@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'subarts'`, () => {
+  it(`should have as title 'subhanarts'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('subarts');
+    expect(app.title).toEqual('subhanarts');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('subarts app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('subhanarts app is running!');
   });
 });

@@ -1,0 +1,58 @@
+<div class="navbar" id="navbar">
+    <h1>Subhan Arts</h1>
+    <div class="nav-items" id="nav-items">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="navbar-cart">Cart<div>{{cart}}</div></a>
+    </div>
+    <mat-icon (click)="menuClick()" class="sort" id="sort">sort</mat-icon>
+    <mat-icon (click)="menuClick()" class="close" id="close">close</mat-icon>
+    <div class="navbar-responsive" id="navbar-responsive">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="cart-responsive">Cart <div>{{cart}}</div></a>
+    </div>
+</div>
+
+<div class="title">EDIT PRODUCT</div>
+<div class="container">
+    <input [(ngModel)]="id" type="text" placeholder="Enter product code">
+    <div style="width: 100%; display: flex; justify-content: center; margin: 10px 0px;" *ngIf="sloading">
+        <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <p style="color: red;">{{alert2}}</p>
+    <button (click)="searchProduct()">Search Product</button>
+</div>
+<div class="container1" *ngIf="!hide">
+    <input [(ngModel)]="name" type="text" placeholder="Product Name">
+    <label for="">Price:</label>
+    <input [(ngModel)]="price" type="number" placeholder="Product Price">
+    <label for="">Select Catagory:</label>
+    <select [(ngModel)]="catagory" name="" id="">
+        <option value="BRANDS">BRANDS</option>
+        <option value="RAPLICA">RAPLICA</option>
+        <option value="LAWN">LAWN</option>
+        <option value="MARINA">MARINA</option>
+        <option value="KHADDAR">KHADDAR</option>
+        <option value="KARANDI">KARANDI</option>
+        <option value="FANCY">FANCY</option>
+        <option value="OTHERS">OTHERS</option>
+    </select>
+    <label for="">Select Sub Catagory:</label>
+    <select [(ngModel)]="subcatagory" name="" id="">
+        <option value="Unstiched">Unstiched</option>
+        <option value="Stiched">Stiched</option>
+        <option value="Kids">Kids</option>
+    </select>
+    <label for="">Quantity:</label>
+    <input [(ngModel)]="quantity" type="number" placeholder="Enter Quantity">
+    <label for="">Write Details:</label>
+    <textarea [(ngModel)]="details" name="" id="" cols="30" rows="5"></textarea>
+    <div style="width: 100%; display: flex; justify-content: center; margin: 10px 0px;" *ngIf="loading">
+        <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <p style="color: red;">{{alert}}</p>
+    <button (click)="editProduct()">SUBMIT EDITS</button>
+
+</div>
+

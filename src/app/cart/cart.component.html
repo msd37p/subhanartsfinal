@@ -1,0 +1,35 @@
+<div class="navbar" id="navbar">
+    <h1>Subhan Arts</h1>
+    <div class="nav-items" id="nav-items">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="navbar-cart">Cart<div>{{cart}}</div></a>
+    </div>
+    <mat-icon (click)="menuClick()" class="sort" id="sort">sort</mat-icon>
+    <mat-icon (click)="menuClick()" class="close" id="close">close</mat-icon>
+    <div class="navbar-responsive" id="navbar-responsive">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="cart-responsive">Cart <div>{{cart}}</div></a>
+    </div>
+</div>
+<div class="title">
+    CART
+</div>
+<div class="container" *ngIf="!loading">
+    <div style="display: flex; width: 100%;" *ngFor="let item of cartItems">
+        <a style="text-decoration: none; color: black; display: flex;" class="card">
+            <a routerLink="/product/{{item._id}}" class="img"><img src={{item.image}} alt=""></a>
+            <a style="text-decoration: none; color: black;" routerLink="/product/{{item._id}}" class="p">
+                <p>{{item.name}}</p>
+                <p>Rs. {{item.price}}/-</p>
+            </a>
+            <div class="icon">
+                <mat-icon style="cursor: pointer;" id={{item._id}} (click)="del($event)">delete</mat-icon>
+            </div>
+        </a>
+    </div>
+</div>
+<div style="width: 100%; height: calc(100vh - 60px); display: flex; justify-content: center;" *ngIf="loading">
+    <mat-spinner style="margin-top: 200px;" [diameter]="40"></mat-spinner>
+</div>

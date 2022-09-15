@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    opacity: 1;
+    z-index: 2;
+}
+
+.navbar-scrolled {
+    background-color: white;
+    transition: 0.5s;
+}
+
+.navbar h1 {
+    font-family: 'Ms Madi', cursive;
+    font-size: 48px;
+    color: white;
+    transition: 0.5s;
+    margin: auto 0;
+}
+
+.sort {
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-scrolled h1 {
+    color: red;
+    transition: 0.5s;
+}
+
+.navbar-scrolled mat-icon {
+    color: red;
+    transition: 0.5s;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    margin: 0px 10px;
+    transition: 0.5s;
+}
+
+.navbar-cart {
+    position: relative;
+}
+
+.navbar-cart div {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    top: -2px;
+    position: absolute;
+    left: 32px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+.cart-responsive {
+    position: relative;
+}
+
+.cart-responsive div {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+
+}
+
+.nav-items-scrolled a {
+    color: red;
+    transition: 0.5s;
+}
+
+.navbar-responsive {
+    display: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .nav-items a {
+        font-size: 14px;
+    }
+
+    .navbar h1 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        padding: 0 4vw;
+    }
+
+    .navbar h1 {
+        margin: auto 0;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .sort {
+        display: block;
+    }
+
+    .sort-hide {
+        display: none;
+    }
+
+    .close {
+        display: none;
+    }
+
+    .close-show {
+        display: block;
+    }
+
+    .navbar-responsive {
+        width: 60%;
+        height: calc(100vh - 60px);
+        top: 60px;
+        left: -60%;
+        position: fixed;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 0 4vw;
+        transition: 0.5s;
+    }
+
+    .navbar-responsive a {
+        margin: 10px 0px;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+    }
+
+    .navbar-responsive-click {
+        left: 0;
+        transition: 0.5s;
+    }
+}
+
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../assets/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    padding: 160px 2vw;
+    flex-direction: column;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.hero-section .p1 {
+    font-size: 30px;
+}
+
+.hero-section .p1 b {
+    font-family: 'Ms Madi', cursive;
+    font-size: 40px;
+    animation-name: change-color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+}
+
+@media screen and (max-width: 700px) {
+    .hero-section {
+        padding: 0 2vw;
+        height: 300px;
+        opacity: 0.8;
+        z-index: -1;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-section .p {
+        color: white;
+        opacity: 1;
+    }
+
+    .hero-section .p2 {
+        font-size: 12px;
+    }
+
+    .hero-section .p1 {
+        line-height: 30px;
+        font-size: 22px;
+    }
+
+    .hero-section .p1 b {
+        font-size: 32px;
+    }
+}
+
+@keyframes change-color {
+    0% {
+        color: white;
+    }
+
+    25% {
+        color: red;
+    }
+
+    50% {
+        color: yellow;
+    }
+
+    75% {
+        color: palevioletred;
+    }
+}
+
+.catagories-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2vw;
+}
+
+.catagories-section .title {
+    width: 100%;
+    margin: 10px 0px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+}
+
+.catagories-section .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.catagories-section .container a {
+    width: 200px;
+    height: 60px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+    text-decoration: none;
+    color: black;
+    user-select: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+@media screen and (max-width: 700px) {
+    .catagories-section {
+        margin-bottom: 3px;
+    }
+
+    .catagories-section .container a {
+        width: 120px;
+        height: 40px;
+        margin: 6px 6px;
+    }
+
+    .catagories-section .title {
+        font-size: 16px;
+        margin: 6px 0px;
+    }
+}
+
+.brandnew-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2vw;
+}
+
+.brandnew-section .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.brandnew-section .title {
+    width: 100%;
+    margin: 10px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+}
+
+.brandnew-section .container a {
+    width: 200px;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    margin: 10px 10px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    text-decoration: none;
+    color: black;
+}
+
+.brandnew-section .container a img {
+    width: 100%;
+    margin-bottom: 4px;
+    transition: 0.5s;
+}
+
+.brandnew-section .container a img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.brandnew-section .container a div {
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+}
+
+.brandnew-section .container .maindiv {
+    display: flex;
+}
+
+@media screen and (max-width: 700px) {
+
+    .brandnew-section .title {
+        font-size: 16px;
+        margin: 6px 0px;
+    }
+
+    .brandnew-section .container .maindiv {
+        display: flex;
+    }
+
+    .brandnew-section .container a {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        margin: 6px 6px;
+        padding: 5px;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+
+    .brandnew-section .container a img {
+        width: 100%;
+    }
+
+    .brandnew-section .container a div {
+        font-size: 12px;
+    }
+
+    .brandnew-section .container a .div2 {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+}
+
+.loadmore {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadmore div {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.footer-section {
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 2vw;
+}
+
+.footer-section h1 {
+    color: red;
+    font-family: 'Ms Madi', cursive;
+    font-size: 46px;
+}
+
+.footer-section div a {
+    margin: 0 4px;
+}
+
+.footer-section a {
+    color: red;
+}
+
+.footer-section div a svg {
+    width: 26px;
+}
+
+.footer-section label {
+    margin-top: 8px;
+}
+
+.footer-section .dev {
+    margin-top: 20px;
+    font-size: 10px;
+    color: black;
+}
+
+@media screen and (max-width: 700px) {
+    .footer-section {
+        margin-top: 6px;
+    }
+
+    .footer-section h1 {
+        font-size: 40px;
+    }
+
+    .loadmore div {
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.whatsapp svg {
+    filter: invert(100%) sepia(10%) saturate(7492%) hue-rotate(199deg) brightness(101%) contrast(111%);
+    width: 30px;
+}

@@ -1,0 +1,54 @@
+<div class="navbar" id="navbar">
+    <h1>Subhan Arts</h1>
+    <div class="nav-items" id="nav-items">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="navbar-cart">Cart<div>{{cart}}</div></a>
+    </div>
+    <mat-icon (click)="menuClick()" class="sort" id="sort">sort</mat-icon>
+    <mat-icon (click)="menuClick()" class="close" id="close">close</mat-icon>
+    <div class="navbar-responsive" id="navbar-responsive">
+        <a routerLink="">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="cart-responsive">Cart <div>{{cart}}</div></a>
+    </div>
+</div>
+
+<div class="title">ADD PRODUCT</div>
+<div class="container" *ngIf="!loading">
+    <div class="image">
+        <input (change)="imageChange($event)" type="file" accept="image/*">
+        <img src={{image}} alt="">
+    </div>
+    <button style="margin-top: 5px; margin-bottom: 5px;" (click)="resetImg()">Reset</button>
+    <input [(ngModel)]="name" type="text" placeholder="Product Name">
+    <label for="">Price:</label>
+    <input [(ngModel)]="price" type="number" placeholder="Product Price">
+    <label for="">Select Catagory:</label>
+    <select [(ngModel)]="catagory" name="" id="">
+        <option value="BRANDS">BRANDS</option>
+        <option value="RAPLICA">RAPLICA</option>
+        <option value="LAWN">LAWN</option>
+        <option value="MARINA">MARINA</option>
+        <option value="KHADDAR">KHADDAR</option>
+        <option value="KARANDI">KARANDI</option>
+        <option value="FANCY">FANCY</option>
+        <option value="OTHERS">OTHERS</option>
+    </select>
+    <label for="">Select Sub Catagory:</label>
+    <select [(ngModel)]="subcatagory" name="" id="">
+        <option value="Unstiched">Unstiched</option>
+        <option value="Stiched">Stiched</option>
+        <option value="Kids">Kids</option>
+    </select>
+    <label for="">Quantity:</label>
+    <input [(ngModel)]="quantity" type="number" placeholder="Enter Quantity">
+    <label for="">Write Details:</label>
+    <textarea [(ngModel)]="details" name="" id="" cols="30" rows="5"></textarea>
+    <p style="color: red;">{{alert}}</p>
+    <button (click)="addProduct()">ADD PRODUCT</button>
+
+</div>
+<div style="width: 100%; height: calc(100vh - 60px); display: flex; justify-content: center;" *ngIf="loading">
+    <mat-spinner style="margin-top: 200px;" [diameter]="40"></mat-spinner>
+</div>

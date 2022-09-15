@@ -1,0 +1,40 @@
+<div class="navbar" id="navbar">
+    <h1>Subhan Arts</h1>
+    <div class="nav-items" id="nav-items">
+        <a routerLink="/">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="navbar-cart">Cart<div>{{cart}}</div></a>
+    </div>
+    <mat-icon (click)="menuClick()" class="sort" id="sort">sort</mat-icon>
+    <mat-icon (click)="menuClick()" class="close" id="close">close</mat-icon>
+    <div class="navbar-responsive" id="navbar-responsive">
+        <a routerLink="/">Home</a>
+        <a>Services</a>
+        <a routerLink="/cart" class="cart-responsive">Cart <div>{{cart}}</div></a>
+    </div>
+</div>
+<div class="title">
+    {{catagory}}
+</div>
+<div class="subcatagories">
+    <a id="us" class="scactive" (click)="unStClick()">Unstiched</a>
+    <a id="s" class="" (click)="stClick()">Stiched</a>
+    <a id="k" class="" (click)="kidsClick()">Kids</a>
+</div>
+<div class="container" *ngIf="!initialloading">
+    <div style="display: flex;" *ngFor="let product of products">
+        <a class="card" routerLink="/product/{{product._id}}">
+            <img src={{product.image}} alt="">
+            <div>
+                {{product.name}}
+                <div class="div2">Rs. {{product.price}}/-</div>
+            </div>
+        </a>
+    </div>
+</div>
+<div style="width: 100%; display: flex; justify-content: center; margin: 10px 0px;" *ngIf="loading">
+    <mat-spinner [diameter]="40"></mat-spinner>
+</div>
+<div style="margin: 10px 0px;" class="loadmore" *ngIf="!loading">
+    <div (click)="loadClick()">Load More</div>
+</div>

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    z-index: 2;
+    background-color: white;
+}
+
+.navbar h1 {
+    font-family: 'Ms Madi', cursive;
+    font-size: 48px;
+    margin: auto 0;
+    color: red;
+}
+
+.sort {
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar mat-icon {
+    color: red;
+}
+
+.nav-items a {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px 10px;
+    color: red;
+    cursor: pointer;
+}
+
+.navbar-cart{
+    position: relative;
+}
+
+.navbar-cart div{
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    top: -2px;
+    position: absolute;
+    left: 32px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+.cart-responsive{
+    position: relative;
+}
+
+.cart-responsive div{
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+
+}
+
+.navbar-responsive {
+    display: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .nav-items a {
+        font-size: 14px;
+    }
+
+    .navbar h1 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        padding: 0 4vw;
+    }
+
+    .navbar h1 {
+        margin: auto 0;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .sort {
+        display: block;
+    }
+
+    .sort-hide {
+        display: none;
+    }
+
+    .close {
+        display: none;
+    }
+
+    .close-show {
+        display: block;
+    }
+
+    .navbar-responsive {
+        width: 60%;
+        height: calc(100vh - 60px);
+        top: 60px;
+        left: -60%;
+        position: fixed;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 0 4vw;
+        transition: 0.5s;
+    }
+
+    .navbar-responsive a {
+        margin: 10px 0px;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+    }
+
+    .navbar-responsive-click {
+        left: 0;
+        transition: 0.5s;
+    }
+}
+
+.title {
+    margin-top: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.subcatagories {
+    display: flex;
+    padding: 0 2vw;
+    justify-content: stretch;
+    margin-top: 5px;
+    gap: 2px;
+}
+
+.subcatagories a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.subcatagories .scactive{
+    background-color: red;
+    border: red;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container a {
+    width: 200px;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    margin: 10px 10px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    text-decoration: none;
+    color: black;
+}
+
+.container a img {
+    width: 100%;
+    margin-bottom: 4px;
+    transition: 0.5s;
+}
+
+.container a div {
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+
+    .container a {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        margin: 6px 6px;
+        padding: 5px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .container a img {
+        width: 100%;
+    }
+
+    .container a div {
+        font-size: 12px;
+    }
+
+    .container a .div2 {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+}
+
+.loadmore {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadmore div {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+.footer-section {
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 2vw;
+}
+
+.footer-section h1 {
+    color: red;
+    font-family: 'Ms Madi', cursive;
+    font-size: 46px;
+}
+
+.footer-section div a {
+    margin: 0 4px;
+}
+
+.footer-section a {
+    color: red;
+}
+
+.footer-section div a svg {
+    width: 26px;
+}
+
+.footer-section label {
+    margin-top: 8px;
+}
+
+.footer-section .dev {
+    margin-top: 20px;
+    font-size: 10px;
+    color: black;
+}
+
+@media screen and (max-width: 700px) {
+    .footer-section {
+        margin-top: 6px;
+    }
+
+    .footer-section h1 {
+        font-size: 40px;
+    }
+
+    .loadmore div {
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+    }
+}

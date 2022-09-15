@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    z-index: 2;
+    background-color: white;
+}
+
+.navbar h1 {
+    font-family: 'Ms Madi', cursive;
+    font-size: 48px;
+    margin: auto 0;
+    color: red;
+}
+
+.sort {
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar mat-icon {
+    color: red;
+}
+
+.nav-items a {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px 10px;
+    color: red;
+    cursor: pointer;
+}
+
+.navbar-cart {
+    position: relative;
+}
+
+.navbar-cart div {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    top: -2px;
+    position: absolute;
+    left: 32px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+.navbar-responsive {
+    display: none;
+}
+
+.cart-responsive {
+    position: relative;
+}
+
+.cart-responsive div {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-items a {
+        font-size: 14px;
+    }
+
+    .navbar h1 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        padding: 0 4vw;
+    }
+
+    .navbar h1 {
+        margin: auto 0;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .sort {
+        display: block;
+    }
+
+    .sort-hide {
+        display: none;
+    }
+
+    .close {
+        display: none;
+    }
+
+    .close-show {
+        display: block;
+    }
+
+    .navbar-responsive {
+        width: 60%;
+        height: calc(100vh - 60px);
+        top: 60px;
+        left: -60%;
+        position: fixed;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 0 4vw;
+        transition: 0.5s;
+    }
+
+    .navbar-responsive a {
+        margin: 10px 0px;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+    }
+
+    .navbar-responsive-click {
+        left: 0;
+        transition: 0.5s;
+    }
+}
+
+.image {
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    background-color: palevioletred;
+}
+
+.image img {
+    width: 220px;
+}
+
+.name {
+    padding: 8px 4vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+}
+
+.price {
+    width: 100%;
+    padding: 16px 4vw;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: palevioletred;
+}
+
+.id {
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    font-size: 12px;
+    padding: 0 4vw;
+}
+
+.details {
+    width: 100%;
+    padding: 16px 4vw;
+    text-align: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+.cart {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding-bottom: 16px;
+}
+
+.cart a {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.footer-section {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 26px 2vw;
+}
+
+.footer-section h1 {
+    color: red;
+    font-family: 'Ms Madi', cursive;
+    font-size: 46px;
+}
+
+.footer-section div a {
+    margin: 0 4px;
+}
+
+.footer-section a {
+    color: red;
+}
+
+.footer-section div a svg {
+    width: 26px;
+}
+
+.footer-section label {
+    margin-top: 8px;
+}
+
+.footer-section .dev {
+    margin-top: 20px;
+    font-size: 10px;
+    color: black;
+}
+
+@media screen and (max-width: 700px) {
+    .footer-section {
+        margin-top: 0px;
+    }
+
+    .footer-section h1 {
+        font-size: 40px;
+    }
+
+    .loadmore div {
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.whatsapp svg {
+    filter: invert(100%) sepia(10%) saturate(7492%) hue-rotate(199deg) brightness(101%) contrast(111%);
+    width: 30px;
+}
