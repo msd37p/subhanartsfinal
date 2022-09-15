@@ -43,8 +43,13 @@ const Product = mongoose.model('Product', schema)
 
 
 app.get('/api/products', async (req, res) => {
+    try {
+        
     const items = await Product.find()
     res.json(items)
+    } catch (error) {
+        console.log(error)
+    }
 })
 app.get('/api/products/limit', async(req, res)=>{
     try {
@@ -74,35 +79,39 @@ app.get('/api/products/id', async(req, res)=>{
 })
 
 app.post('/api/products', async (req, res) => {
-    const base64image = req.body.image
-    const my_cloud = await cloudinary.uploader.upload(base64image)
-    const image = my_cloud.secure_url
-    const public_id = my_cloud.public_id
-    const product = new Product({
-        name: req.body.name,
-        price: req.body.price,
-        catagory: req.body.catagory,
-        subcatagory: req.body.subcatagory,
-        quantity: req.body.quantity,
-        details: req.body.details,
-        image: image,
-        public_id: public_id
-    })
-    product.save()
-    res.json({
-        status: 200
-    })
+    try {
+        const base64image = req.body.image
+        const my_cloud = await cloudinary.uploader.upload(base64image)
+        const image = my_cloud.secure_url
+        const public_id = my_cloud.public_id
+        const product = new Product({
+            name: req.body.name,
+            price: req.body.price,
+            catagory: req.body.catagory,
+            subcatagory: req.body.subcatagory,
+            quantity: req.body.quantity,
+            details: req.body.details,
+            image: image,
+            public_id: public_id
+        })
+        product.save()
+        res.json({
+            status: 200
+        })
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
 app.delete('/api/products', async (req, res) => {
     try {
         const id = req.query.id
+        const ac = await Product.findOne({_id: id})
         await Product.findByIdAndDelete(id)
+        await cloudinary.uploader.destroy(ac.public_id)
         res.json({
             status: 200
-        })
-        res.json({
-            status: 404
         })
     } catch (error) {
         res.json({
@@ -153,6 +162,8 @@ app.put('/api/product', async (req, res) => {
 })
 
 app.post('/api/isadmin', async(req, res)=>{
+    try {
+        
     const cookie = req.cookies.satoken
     const adminkey = process.env.ADMIN_KEY
     if(cookie === adminkey){
@@ -160,9 +171,14 @@ app.post('/api/isadmin', async(req, res)=>{
         return
     }
     res.json(false)
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.post('/api/login', async(req, res)=>{
+    try {
+        
     const key = req.body.key
     const adminkey = process.env.ADMIN_KEY
     if(key === adminkey){
@@ -170,6 +186,9 @@ app.post('/api/login', async(req, res)=>{
         return
     }
     res.json(false)
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.get('*', (req, res) =>
