@@ -9,6 +9,7 @@ import { AdminremoveproductComponent } from './adminremoveproduct/adminremovepro
 import { CartComponent } from './cart/cart.component';
 import { CatagoryComponent } from './catagory/catagory.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { OrderComponent } from './order/order.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'adminlogin',
     component: AdminloginComponent
+  },
+  {
+    path: 'ordernow/:id',
+    component: OrderComponent
   }
 ];
 

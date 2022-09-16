@@ -19,3 +19,18 @@
     <a routerLink="/admin/editproduct">EDIT </a>
     <a routerLink="/admin/data">DATA</a>
 </div>
+<div class="orders" *ngIf="!loading">
+    <h2>Orders</h2>
+    <div class="order" *ngFor="let order of orders">
+        <p>Name: {{order.name}}</p>
+        <p>Email: {{order.email}}</p>
+        <p>Phone Number: {{order.phonenumber}}</p>
+        <p>Product Name: {{order.productname}}</p>
+        <p>Product Catagory: {{order.productcatagory}}</p>
+        <p>Product Subcatagoty: {{order.productsubcatagory}}</p>
+        <p>Product Code: {{order.productid}}</p>
+        <p>Quantity: {{order.quantity}}</p>
+        <p>Date: {{order.date}}</p>
+    </div>
+</div>
+<mat-spinner *ngIf="loading" style="margin: auto; margin-top: 20px" [diameter]="40"></mat-spinner>

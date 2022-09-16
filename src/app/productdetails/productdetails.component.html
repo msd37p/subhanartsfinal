@@ -33,7 +33,7 @@
     <p style="color: red;">{{alert}}</p>
     <a (click)="addCart()" style="cursor: pointer; margin: 5px 0px;">Add To Cart</a>
     <a onclick="window.print()" style="cursor: pointer; margin: 5px 0px;">Save PDF</a>
-    <a onclick="history.back()" style="cursor: pointer; margin-top: 5px;">Back</a>
+    <a routerLink="/ordernow/{{id}}" style="cursor: pointer; margin-top: 5px; text-decoration: none; color: black;">Order Now</a>
 </div>
 </div>
 <div style="width: 100%; height: calc(100vh - 60px); display: flex; justify-content: center;" *ngIf="loading">

@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmindataComponent } from './admindata/admindata.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
     AdminremoveproductComponent,
     AdmineditproductComponent,
     AdmindataComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="navbar" id="navbar">
+    <h1>Subhan Arts</h1>
+    <div class="nav-items" id="nav-items">
+        <a routerLink="">Home</a>
+        <a routerLink="/cart" class="navbar-cart">Cart<div>{{cart}}</div></a>
+    </div>
+    <mat-icon (click)="menuClick()" class="sort" id="sort">sort</mat-icon>
+    <mat-icon (click)="menuClick()" class="close" id="close">close</mat-icon>
+    <div class="navbar-responsive" id="navbar-responsive">
+        <a routerLink="">Home</a>
+        <a routerLink="/cart" class="cart-responsive">Cart <div>{{cart}}</div></a>
+    </div>
+</div>
+<div class="form">
+    <input [(ngModel)]="name" type="text" placeholder="Full Name">
+    <input [(ngModel)]="email" type="email" placeholder="Email Address">
+    <input [(ngModel)]="phonenumber" type="number" placeholder="Phone Number">
+    <input [(ngModel)]="quantity" type="number" placeholder="Quantity">
+    <a (click)="submit()">
+        <p *ngIf="!loading">Order</p>
+        <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+    </a>
+</div>

@@ -40,38 +40,50 @@ const schema = new mongoose.Schema({
     public_id: { type: String }
 })
 const Product = mongoose.model('Product', schema)
+const orderSchema = new mongoose.Schema({
+    name: { type: String },
+    phonenumber: {type: String},
+    email: {type: String},
+    quantity: {type: String},
+    date: {type: String},
+    productid: {type: String},
+    productname: {type: String},
+    productcatagory: {type: String},
+    productsubcatagory: {type: String}
+})
+const Order = mongoose.model('Order', orderSchema)
 
 
 app.get('/api/products', async (req, res) => {
     try {
-        
-    const items = await Product.find()
-    res.json(items)
+
+        const items = await Product.find()
+        res.json(items)
     } catch (error) {
         console.log(error)
     }
 })
-app.get('/api/products/limit', async(req, res)=>{
+app.get('/api/products/limit', async (req, res) => {
     try {
-        const items = await Product.find().sort({_id: -1}).limit(req.query._limit)
+        const items = await Product.find().sort({ _id: -1 }).limit(req.query._limit)
         res.json(items)
     } catch (error) {
         console.log(error)
     }
 })
 
-app.get('/api/products/catagory', async(req, res)=>{
+app.get('/api/products/catagory', async (req, res) => {
     try {
-        const items = await Product.find({catagory: req.query.catagory, subcatagory: req.query.subcatagory}).sort({_id: -1}).limit(req.query._limit)
+        const items = await Product.find({ catagory: req.query.catagory, subcatagory: req.query.subcatagory }).sort({ _id: -1 }).limit(req.query._limit)
         res.json(items)
     } catch (error) {
         console.log(error)
     }
 })
 
-app.get('/api/products/id', async(req, res)=>{
+app.get('/api/products/id', async (req, res) => {
     try {
-        const items = await Product.findOne({_id : req.query.id})
+        const items = await Product.findOne({ _id: req.query.id })
         res.json([items])
     } catch (error) {
         console.log(error)
@@ -107,7 +119,7 @@ app.post('/api/products', async (req, res) => {
 app.delete('/api/products', async (req, res) => {
     try {
         const id = req.query.id
-        const ac = await Product.findOne({_id: id})
+        const ac = await Product.findOne({ _id: id })
         await Product.findByIdAndDelete(id)
         await cloudinary.uploader.destroy(ac.public_id)
         res.json({
@@ -161,31 +173,69 @@ app.put('/api/product', async (req, res) => {
     }
 })
 
-app.post('/api/isadmin', async(req, res)=>{
+app.post('/api/isadmin', async (req, res) => {
     try {
-        
-    const cookie = req.cookies.satoken
-    const adminkey = process.env.ADMIN_KEY
-    if(cookie === adminkey){
-        res.json(true)
-        return
-    }
-    res.json(false)
+
+        const cookie = req.cookies.satoken
+        const adminkey = process.env.ADMIN_KEY
+        if (cookie === adminkey) {
+            res.json(true)
+            return
+        }
+        res.json(false)
     } catch (error) {
         console.log(error)
     }
 })
 
-app.post('/api/login', async(req, res)=>{
+app.post('/api/login', async (req, res) => {
     try {
-        
-    const key = req.body.key
-    const adminkey = process.env.ADMIN_KEY
-    if(key === adminkey){
-        res.cookie('satoken', adminkey).json(true)
-        return
+
+        const key = req.body.key
+        const adminkey = process.env.ADMIN_KEY
+        if (key === adminkey) {
+            res.cookie('satoken', adminkey).json(true)
+            return
+        }
+        res.json(false)
+    } catch (error) {
+        console.log(error)
     }
-    res.json(false)
+})
+
+app.post('/api/order', async(req, res)=>{
+    try {
+    const id = req.body.productid
+    const product = await Product.findOne({_id: id})
+
+        
+    const name = req.body.name
+    const email = req.body.email
+    const phonenumber = req.body.phonenumber
+    const quantity = req.body.quantity
+    const date = new Date().toLocaleDateString()
+    const order = new Order({
+        name: name,
+        email: email,
+        phonenumber: phonenumber,
+        quantity: quantity,
+        date: date,
+        productid: product._id,
+        productname: product.name,
+        productcatagory: product.catagory,
+        productsubcatagory:  product.subcatagory
+    })
+    order.save()
+    res.json('Thank You, Our staff will contact you soon!')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+app.get('/api/orders', async(req, res)=>{
+    try {
+        const orders = await Order.find().sort({_id: -1})
+        res.json(orders)
     } catch (error) {
         console.log(error)
     }
