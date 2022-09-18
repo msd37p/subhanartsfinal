@@ -45,7 +45,7 @@ export class OrderComponent implements OnInit {
       return
     }
     if(this.email === ''){
-      alert('Please Enter Your Email')
+      alert('Please Enter Your Complete Address')
       return
     }
     if(this.phonenumber === ''){
